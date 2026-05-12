@@ -3,6 +3,7 @@ An end-to-end SQL-driven Generative AI analytics pipeline that enables users to 
 
 # Project Overview
 This project was developed to solve the challenge of analyzing complex healthcare datasets without manually writing SQL queries or directly feeding raw tabular data into Large Language Models (LLMs). The system dynamically generates SQL queries, retrieves relevant data, summarizes it, and produces intelligent natural language insights using Generative AI.
+
 The solution supports multi-table querying, temporary joins, evaluation metrics, and secure data handling for healthcare analytics.
 
 # Key Features

@@ -1,28 +1,40 @@
-# GenAI Health Data Insight System
+# Medical Insurance Cost Prediction System with MLflow
 
-An end-to-end SQL-driven Generative AI analytics pipeline that enables users to query structured healthcare datasets using natural language and receive context-aware insights and recommendations.
+An end-to-end Machine Learning pipeline for predicting medical insurance charges using regression models, feature engineering, preprocessing pipelines, and MLflow-based experiment tracking. The project demonstrates production-style ML workflow implementation, model comparison, hyperparameter tuning, and model registry management.
 
 ---
 
 # Project Overview
 
-This project was developed to solve the challenge of analyzing complex healthcare datasets without manually writing SQL queries or directly feeding raw tabular data into Large Language Models (LLMs). The system dynamically generates SQL queries, retrieves relevant data, summarizes it, and produces intelligent natural language insights using Generative AI.
+This project was developed to predict individual medical insurance charges based on demographic and health-related attributes such as age, BMI, smoking habits, region, and number of children.
 
-The solution supports multi-table querying, temporary joins, evaluation metrics, and secure data handling for healthcare analytics.
+The system follows a complete industry-level Machine Learning workflow including:
+
+- Data cleaning and preprocessing  
+- Exploratory Data Analysis (EDA)  
+- Feature engineering  
+- Model training and evaluation  
+- Pipeline automation  
+- Hyperparameter tuning  
+- MLflow experiment tracking and model registry  
+
+The final Random Forest model achieved approximately **88% R² accuracy** on test data.
 
 ---
 
 # Key Features
 
-- Natural language to SQL query generation  
-- Dynamic schema extraction  
-- Automated SQL sanitization and validation  
-- Multi-table temporary joins  
-- Context-aware AI-generated insights  
-- Structured data summarization before LLM inference  
-- Evaluation metrics for generated responses  
-- Interactive Streamlit user interface  
-- Real-time analytics pipeline  
+- End-to-end Machine Learning pipeline  
+- Automated preprocessing using Scikit-learn Pipelines  
+- Outlier handling using Winsorization  
+- Numerical scaling and categorical encoding  
+- Baseline and advanced model comparison  
+- Random Forest regression modeling  
+- Feature importance analysis  
+- MLflow experiment tracking  
+- Hyperparameter tuning with GridSearchCV  
+- Model versioning and registry using MLflow  
+- Production-ready modular workflow  
 
 ---
 
@@ -36,118 +48,183 @@ The solution supports multi-table querying, temporary joins, evaluation metrics,
 ## Libraries & Frameworks
 
 - Pandas  
-- Streamlit  
-- SQLite  
-- LangChain  
-- OpenAI API  
+- NumPy  
+- Scikit-learn  
+- Feature-engine  
+- Matplotlib  
+- Joblib  
 
-## AI & NLP
+## Machine Learning
 
-- Generative AI  
-- Prompt Engineering  
-- Natural Language to SQL  
-- Context-aware Response Generation  
+- Regression Modeling  
+- Random Forest Regression  
+- Linear Regression  
+- Feature Engineering  
+- Feature Importance Analysis  
+- Model Evaluation  
 
-## Evaluation
+## MLOps & Experiment Tracking
 
-- Faithfulness Evaluation  
-- Relevance Accuracy  
-- Context Accuracy  
-
----
-
-# System Architecture
-
-1. User uploads healthcare datasets  
-2. Datasets loaded into in-memory SQLite database  
-3. Schema extracted dynamically  
-4. User asks question in natural language  
-5. LLM generates SQL query  
-6. SQL query sanitized and validated  
-7. Query executed on structured data  
-8. Retrieved data summarized  
-9. LLM generates final insights/recommendations  
-10. Evaluation metrics calculated  
+- MLflow  
+- GridSearchCV  
+- Model Registry  
+- Experiment Tracking  
+- Dataset Tracking  
 
 ---
 
-# Datasets Used
+# Dataset Information
 
-## Dataset 1
+The dataset contains medical insurance-related records with the following features:
 
-Contains:
-
-- Demographics  
-- Hemoglobin  
+- Age  
+- Gender  
 - BMI  
-- Genetic coefficients  
-- Lifestyle factors  
-- Stress levels  
-- Medical disorders  
-
-## Dataset 2
-
-Contains:
-
-- Patient activity data  
-- Daily step counts  
-- Physical activity history  
+- Number of Children  
+- Smoking Status  
+- Region  
+- Medical Charges (Target Variable)  
 
 ---
 
-# Core Functionalities
+# Machine Learning Workflow
 
-## Dynamic SQL Generation
+## 1. Data Cleaning
 
-The system converts user questions into optimized SQL queries dynamically.
+Implemented industry-standard data cleaning pipeline:
 
-## Secure Query Processing
-
-Implemented SQL sanitization and automatic column qualification to improve reliability and prevent invalid queries.
-
-## AI-Powered Insight Generation
-
-Generated contextual healthcare insights and recommendations using LLMs.
-
-## Evaluation Pipeline
-
-Measured:
-
-- Faithfulness  
-- Relevance  
-- Context utilization  
+- Removed duplicates  
+- Standardized column names  
+- Cleaned categorical values  
+- Corrected data types  
+- Structured preprocessing workflow  
 
 ---
 
-# User Interface
+## 2. Exploratory Data Analysis (EDA)
 
-The Streamlit application allows users to:
+Performed comprehensive data analysis including:
 
-- Upload datasets  
-- Ask natural language questions  
-- View generated SQL queries  
-- Preview retrieved data  
-- Analyze AI-generated insights  
-- Monitor evaluation scores  
+- Distribution analysis  
+- Correlation analysis  
+- Outlier detection  
+- Feature relationship analysis  
+- Categorical feature analysis  
+- Residual analysis  
+
+---
+
+## 3. Preprocessing Pipeline
+
+Built modular preprocessing pipelines using Scikit-learn:
+
+### Numerical Pipeline
+
+- Outlier capping using Winsorizer  
+- Missing value imputation  
+- Feature scaling using StandardScaler  
+
+### Categorical Pipeline
+
+- Missing value handling  
+- One-Hot Encoding  
+- Unknown category handling  
+
+---
+
+## 4. Model Training
+
+Implemented and compared multiple regression models:
+
+### Baseline Model
+
+- Linear Regression  
+
+### Improved Model
+
+- Random Forest Regressor  
+
+---
+
+# Model Performance
+
+## Linear Regression
+
+- MAE: 4183  
+- RMSE: 5956  
+- R² Score: 80.6%  
+
+## Random Forest Regressor
+
+- MAE: 2628  
+- RMSE: 4726  
+- R² Score: 87.8%  
+
+The Random Forest model significantly outperformed the baseline Linear Regression model.
+
+---
+
+# Feature Importance Analysis
+
+Analyzed feature importance using Random Forest model.
+
+Top contributing features:
+
+- Smoking status  
+- BMI  
+- Age  
+- Number of children  
+
+---
+
+# MLflow Integration
+
+Implemented MLflow for complete experiment management:
+
+- Experiment tracking  
+- Hyperparameter logging  
+- Metric logging  
+- Dataset tracking  
+- Model signature logging  
+- Model artifact storage  
+- Model versioning  
+- Registered model management  
+
+---
+
+# Hyperparameter Tuning
+
+Used GridSearchCV with MLflow autologging for automated tuning.
+
+Tuned parameters:
+
+- Number of estimators  
+- Maximum depth  
+
+Best-performing models were automatically registered in MLflow Model Registry.
 
 ---
 
 # Project Outcomes
 
-- Successfully built an end-to-end GenAI analytics system  
-- Enabled real-time healthcare insight generation  
-- Supported complex multi-table analytical queries  
-- Improved accessibility of structured healthcare analytics using AI  
+- Built a complete production-style ML pipeline  
+- Achieved ~88% prediction accuracy using Random Forest  
+- Automated preprocessing and model workflow  
+- Implemented experiment tracking using MLflow  
+- Enabled reproducible ML experimentation  
+- Demonstrated end-to-end MLOps workflow  
 
 ---
 
 # Future Enhancements
 
-- Fine-tuned domain-specific healthcare LLM  
-- Role-based authentication  
-- Cloud deployment with Docker and AWS  
-- Vector database integration  
-- Conversational memory support  
+- Docker containerization  
+- AWS deployment  
+- CI/CD integration  
+- Real-time prediction API  
+- Advanced ensemble models  
+- SHAP explainability integration  
+- Streamlit prediction dashboard  
 
 ---
 
@@ -161,10 +238,44 @@ cd project_folder
 pip install -r requirements.txt
 ```
 
-# Run the Application
+---
+
+# Run the MLflow Tracking Server
 
 ```bash
-streamlit run app.py
+mlflow server --host 127.0.0.1 --port 5000
+```
+
+---
+
+# Run the Project
+
+```bash
+python train.py
+```
+
+---
+
+# MLflow UI
+
+```bash
+http://127.0.0.1:5000
+```
+
+---
+
+# Project Structure
+
+```bash
+project_folder/
+│
+├── data/
+├── notebooks/
+├── models/
+├── artifacts/
+├── train.py
+├── requirements.txt
+├── README.md
 ```
 
 ---

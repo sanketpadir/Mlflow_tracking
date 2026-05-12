@@ -8,8 +8,8 @@ The solution supports multi-table querying, temporary joins, evaluation metrics,
 
 # Key Features
 
-1.Natural language to SQL query generation
-2.Dynamic schema extraction
+-Natural language to SQL query generation
+-Dynamic schema extraction
 3.Automated SQL sanitization and validation
 4.Multi-table temporary joins
 5.Context-aware AI-generated insights

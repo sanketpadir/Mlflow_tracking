@@ -57,18 +57,18 @@ Evaluation metrics calculated
 ## Dataset 1
 
 Contains:
-Demographics
-Hemoglobin
-BMI
-Genetic coefficients
-Lifestyle factors
-Stress levels
+Demographics,
+Hemoglobin,
+BMI,
+Genetic coefficients,
+Lifestyle factors,
+Stress levels,
 Medical disorders
 
 ## Dataset 2
 Contains:
-Patient activity data
-Daily step counts
+Patient activity data,
+Daily step counts,
 Physical activity history
 
 
